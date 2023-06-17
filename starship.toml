@@ -1,0 +1,124 @@
+#####################################
+## Configuración Shell por Default ##
+#####################################
+
+# Para los iconos de la batería
+[battery]
+format = "[│](bold blue)[$symbol[\\($percentage\\)](green)]($style) [BTW 俺はアーチを使っています ](bold cyan)"
+full_symbol = "  🔋"
+charging_symbol = "  🔌"
+discharging_symbol = "  ⚡"
+disabled = false
+
+# Para ver la Batería
+[[battery.display]]
+threshold = 100
+style = "bold green"
+
+# Para ver el tiempo de ejecución de los comandos
+[cmd_duration]
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " took [$duration]($style)"
+
+# Para ver el directorio actual
+[directory]
+truncation_length = 5
+format = "[\\($path\\)](bold yellow)($style)[$lock_symbol]($lock_style)"
+
+# Para ver el usuario del sistema
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = '[┌──](bold blue)[\[$user@ArchLinux\]]($style)[─](bold blue)'
+disabled = false
+show_always = true
+
+# Para ver la hora
+[time]
+time_format = "%H:%M"
+format = '''
+
+[[└─🕙─](bold blue)\[$time($style)\]](bold yellow)[-](bold blue)'''
+style = "bright-white"
+disabled = false
+
+# Para los iconos de los comandos (resultado positivo o negativo)
+[character]
+success_symbol = "[[\\(](bold green)^_^[\\)](bold green)](green)[[-](bold blue)\\[[\\$](bold green)\\]](bold cyan)"
+error_symbol = "[[\\(](bold green)T_T[\\)](bold green)](red)[[-](bold blue)\\[[\\$](bold green)\\]](bold cyan)"
+
+[hostname]
+ssh_only = false
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
+
+####################
+## Modulos de Git ##
+####################
+
+# Para ver el estado del branch
+[git_branch]
+format = "[\\($branch $symbol\\)]($style)"
+symbol = "[✓](bold green)"
+style = "bold cyan"
+
+# Para ver el estado del commit
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+# Para ver el estado del state
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+# Para ver el estado del status
+[git_status]
+conflicted = " ⚔️"
+ahead = " 🏎️ 💨×${count}"
+behind = " 🐢×${count}"
+diverged = " 🔱 🏎️ 💨×${ahead_count} 🐢 ×${behind_count}"
+untracked = " 🛤️ ×${count}"
+stashed = " 📦"
+modified = " 📝×${count}"
+staged = " 🗃️ ×${count}"
+renamed = " 📛×${count}"
+deleted = " 🗑️ ×${count}"
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+###############################
+## Lenguajes de Programación ##
+###############################
+
+[julia]
+format = "[$symbol$version]($style) "
+symbol = "ஃ "
+style = "bold green"
+
+[package]
+disabled = true
+
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[rust]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[golang]
+format = "via [🏎💨 $version]($style) "
+style = "bold cyan"
+
+[java]
+symbol = "🌟 "
+
+[lua]
+format = " via [$symbol$version]($style) "
+symbol = "🌕"
+style = "bold blue"
+
+[nodejs]
+format = "via [🤖 $version](bold green) "
